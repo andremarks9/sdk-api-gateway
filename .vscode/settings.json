@@ -1,0 +1,44 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.organizeImports": "always"
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.associations": {
+    "*.env.*": "env",
+    ".env*": "dotenv"
+  },
+  "files.exclude": {
+    "node_modules": true
+  },
+  "workbench.editorAssociations": {
+    "*.tsx": "default"
+  },
+  "editor.suggestSelection": "first",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "cSpell.language": "en,pt,pt-BR",
+  "remote.extensionKind": {
+    "username.extension-name": "workspace"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.useSettingFromCspellJson": true,
+  "cSpell.checkOnlyEnabledFileTypes": true,
+  "cSpell.caseSensitive": false,
+  "cSpell.patterns": [],
+  "dbmlERDPreviewer.preferredTheme": "dark"
+}
