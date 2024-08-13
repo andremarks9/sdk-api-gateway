@@ -4,6 +4,14 @@ export type CreateEnvelopeData = {
   expiredAt: string
 }
 
+export type CloseEnvelopeData = {
+  envelopeId: string
+}
+
+export type CancelEnvelopeData = {
+  envelopeId: string
+}
+
 export type EnvelopeQuery = {
   filters?: {
     id: string

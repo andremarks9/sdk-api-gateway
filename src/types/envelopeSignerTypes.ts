@@ -58,3 +58,12 @@ export type DeleteEnvelopeSignerData = {
   data: Array<DeleteData>
   envelopeId: string
 }
+
+type ResendNotificationData = {
+  signerId: string
+}
+
+export type ResendNotificationEnvelopeSigner = {
+  data: Array<ResendNotificationData>
+  envelopeId: string
+}
