@@ -1,4 +1,5 @@
-import { Inject } from '@nestjs/common'
+import { ExceptionDTO } from '@duaneoli/base-project-nest'
+import { HttpException, Inject } from '@nestjs/common'
 import axios from 'axios'
 import { AssinModule } from '../modules/AssinModule'
 import { CancelEnvelopeData, CloseEnvelopeData, CreateEnvelopeData, EnvelopeQuery } from '../types/envelopeTypes'
@@ -34,16 +35,25 @@ export class EnvelopeService {
   }
 
   async closeEnvelope(body: Array<CloseEnvelopeData>, userId?: string) {
-    const userJWT = this.tokenService.get(userId)
+    try {
+      const userJWT = this.tokenService.get(userId)
 
-    const result = await axios.put(`${AssinModule.config.apiPath}/envelope/close`, body, {
-      headers: {
-        Accept: 'application/json',
-        Authorization: `Bearer ${userJWT}`,
-      },
-    })
+      const result = await axios.put(`${AssinModule.config.apiPath}/envelope/close`, body, {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${userJWT}`,
+        },
+      })
 
-    return result.data
+      return result.data
+    } catch (cause) {
+      const error = ExceptionDTO.warn(
+        cause.response.data.errorCode,
+        cause.response.data.message,
+        cause.response.data.rejectedInputs,
+      )
+      throw new HttpException(cause.response.data.error, cause.response.data.statusCode, { cause: error })
+    }
   }
 
   async cancelEnvelope(body: Array<CancelEnvelopeData>, userId?: string) {
