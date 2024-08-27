@@ -4,7 +4,6 @@ import { AssinModule } from '../modules/AssinModule'
 import {
   CreateEnvelopeSignerData,
   DeleteEnvelopeSignerData,
-  EnvelopeSignerQuery,
   ResendNotificationEnvelopeSigner,
 } from '../types/envelopeSignerTypes'
 import { TokenService } from './JWTService'
@@ -17,18 +16,18 @@ export enum EnvelopeSignerPersonalDocumentStatus {
 export class EnvelopeSignerService {
   constructor(@Inject(TokenService) private readonly tokenService: TokenService) {} //,
 
-  async listEnvelopeSigner(query: EnvelopeSignerQuery, userId: string) {
-    const userJWT = this.tokenService.get(userId)
-    const result = await axios.get(`${AssinModule.config.apiPath}/envelope-signer`, {
-      headers: {
-        Accept: 'application/json',
-        Authorization: `Bearer ${userJWT}`,
-      },
-      params: query,
-    })
+  // async listEnvelopeSigner(query: EnvelopeSignerQuery, userId: string) {
+  //   const userJWT = this.tokenService.get(userId)
+  //   const result = await axios.get(`${AssinModule.config.apiPath}/envelope-signer`, {
+  //     headers: {
+  //       Accept: 'application/json',
+  //       Authorization: `Bearer ${userJWT}`,
+  //     },
+  //     params: query,
+  //   })
 
-    return result.data
-  }
+  //   return result.data
+  // }
 
   async createEnvelopeSigner(body: Array<CreateEnvelopeSignerData>, userId?: string) {
     const userJWT = this.tokenService.get(userId)
