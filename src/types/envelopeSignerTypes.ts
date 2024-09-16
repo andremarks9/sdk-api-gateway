@@ -3,13 +3,13 @@ export type EnvelopeSignerQuery = {
     signerId: string
     envelopeId: string
     order: number
-    signatureToken: string
     signatureType: string
-    assigned: boolean
     requirePersonalDocument: boolean
     requireEmailToken: boolean
     requireRubric: boolean
     requireSignature: boolean
+    status: string
+    log: string
     createdAt: string
     updatedAt: string
   }
@@ -34,13 +34,9 @@ export type EnvelopeSignerQuery = {
 
 type CreateData = {
   order: number
-  signatureToken: string
   signatureType: string
-  assigned: boolean
   requirePersonalDocument: boolean
   requireEmailToken: boolean
-  requireRubric: boolean
-  requireSignature: boolean
   email: string
   fullName: string
 }

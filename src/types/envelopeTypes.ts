@@ -5,11 +5,11 @@ export type CreateEnvelopeData = {
 }
 
 export type CloseEnvelopeData = {
-  envelopeId: string
+  id: string
 }
 
 export type CancelEnvelopeData = {
-  envelopeId: string
+  id: string
 }
 
 export type EnvelopeQuery = {

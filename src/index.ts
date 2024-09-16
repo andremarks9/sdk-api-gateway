@@ -1,6 +1,5 @@
 export { AssinModule } from './modules/AssinModule'
 export { DocumentService } from './services/DocumentService'
-export { EnvelopeDocumentService } from './services/EnvelopeDocumentService'
 export { EnvelopeService } from './services/EnvelopeService'
 export { EnvelopeSignerService } from './services/EnvelopeSignerService'
 export { TokenService as Token } from './services/JWTService'
