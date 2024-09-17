@@ -5,6 +5,7 @@ import { DocumentService } from '../services/DocumentService'
 import { EnvelopeService } from '../services/EnvelopeService'
 import { EnvelopeSignerService } from '../services/EnvelopeSignerService'
 import { TokenService } from '../services/JWTService'
+import { SignEnvelopeService } from '../services/SignEnvelopeService'
 import { TagService } from '../services/TagService'
 import { DecoratorConfig } from '../types/types'
 
@@ -21,6 +22,7 @@ export class AssinModule {
       EnvelopeSignerService,
       TagService,
       DocumentService,
+      SignEnvelopeService
     ]
     const providers = [...services]
     const imports = [JwtModule.register({ secret: this.config.secretKey })]

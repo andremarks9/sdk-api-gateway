@@ -55,20 +55,4 @@ export class EnvelopeSignerService {
 
     return result.data
   }
-
-  async validateEnvelopeSignerPersonalDocument(
-    body: { envelopeId: string; signerId: string; status: EnvelopeSignerPersonalDocumentStatus; log: string },
-    userId?: string,
-  ) {
-    const userJWT = this.tokenService.get(userId)
-
-    const result = await axios.put(`${AssinModule.config.apiPath}/envelope-signer/validate-personal-document`, body, {
-      headers: {
-        Accept: 'application/json',
-        Authorization: `Bearer ${userJWT}`,
-      },
-    })
-
-    return result.data
-  }
 }
